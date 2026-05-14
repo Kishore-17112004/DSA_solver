@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05060f;
+  --foreground: #e4ecff;
+  --panel: rgba(20, 23, 43, 0.6);
+  --border: rgba(125, 154, 255, 0.25);
+  --accent: #27d3ff;
+  --accent-secondary: #9f63ff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-panel: var(--panel);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
+  --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+:root[data-theme="light"] {
+  --background: #f4f7ff;
+  --foreground: #101427;
+  --panel: rgba(255, 255, 255, 0.85);
+  --border: rgba(90, 121, 247, 0.2);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -30%;
+  z-index: -2;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(39, 211, 255, 0.25), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(159, 99, 255, 0.2), transparent 40%),
+    radial-gradient(circle at 50% 80%, rgba(39, 211, 255, 0.18), transparent 45%);
+  filter: blur(8px);
+}
+
+.glass-panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, var(--accent), var(--accent-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
