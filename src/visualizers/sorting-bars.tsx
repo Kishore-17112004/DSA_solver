@@ -3,9 +3,9 @@
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
-const values = [30, 55, 22, 80, 42, 68];
+const defaultValues = [30, 55, 22, 80, 42, 68];
 
-export function SortingBars() {
+export function SortingBars({ values = defaultValues }: { values?: number[] }) {
   const ref = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export function SortingBars() {
       .duration(600)
       .attr("y", (d) => y(d))
       .attr("height", (d) => 160 - y(d));
-  }, []);
+  }, [values]);
 
   return (
     <div className="rounded-2xl border border-border/70 p-3">
