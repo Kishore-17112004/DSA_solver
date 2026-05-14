@@ -14,8 +14,8 @@
   --color-foreground: var(--foreground);
   --color-panel: var(--panel);
   --color-border: var(--border);
-  --color-accent: #27d3ff;
-  --color-accent-secondary: #9f63ff;
+  --color-accent: var(--accent);
+  --color-accent-secondary: var(--accent-secondary);
   --font-sans: "Inter", "Segoe UI", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }

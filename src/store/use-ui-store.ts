@@ -12,8 +12,8 @@ type UIState = {
 
 export const useUIStore = create<UIState>((set) => ({
   theme: "dark",
-  xp: 1240,
-  streak: 12,
+  xp: 0,
+  streak: 0,
   toggleTheme: () =>
     set((state) => ({ theme: state.theme === "dark" ? "light" : "dark" })),
   gainXp: (value) => set((state) => ({ xp: state.xp + value })),
