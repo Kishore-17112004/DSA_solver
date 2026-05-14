@@ -2,11 +2,19 @@ const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:5000/api";
 
 export async function fetchFromAPI<T>(path: string): Promise<T> {
+  return requestFromAPI<T>(path);
+}
+
+export async function requestFromAPI<T>(
+  path: string,
+  options: RequestInit = {},
+): Promise<T> {
   const url = `${API_BASE_URL}${path}`;
-  const method = "GET";
+  const method = options.method ?? "GET";
   const response = await fetch(url, {
-    method,
-    headers: { "Content-Type": "application/json" },
+    ...options,
+    method: options.method ?? "GET",
+    headers: { "Content-Type": "application/json", ...(options.headers ?? {}) },
     cache: "no-store",
   });
 

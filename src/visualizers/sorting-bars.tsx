@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import { designSystem } from "@/lib/design-system";
 
 const defaultValues = [30, 55, 22, 80, 42, 68];
 const chartWidth = 320;
@@ -27,7 +28,7 @@ export function SortingBars({ values = defaultValues }: { values?: number[] }) {
       .attr("y", chartHeight)
       .attr("width", x.bandwidth())
       .attr("height", 0)
-      .attr("fill", "#27d3ff")
+      .attr("fill", designSystem.colors.electricBlue)
       .transition()
       .duration(600)
       .attr("y", (d) => y(d))

@@ -17,9 +17,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className="h-full"
     >
-      <body className="min-h-full bg-background text-foreground">
+      <body className="min-h-full bg-background text-foreground antialiased">
         <AppProviders>
           <div className="relative min-h-screen overflow-x-hidden">
             <TopNav />
