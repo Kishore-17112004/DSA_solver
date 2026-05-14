@@ -13,7 +13,7 @@ export async function requestFromAPI<T>(
   const method = options.method ?? "GET";
   const response = await fetch(url, {
     ...options,
-    method: options.method ?? "GET",
+    method,
     headers: { "Content-Type": "application/json", ...(options.headers ?? {}) },
     cache: "no-store",
   });
