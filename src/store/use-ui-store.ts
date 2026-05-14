@@ -8,6 +8,8 @@ type UIState = {
   streak: number;
   toggleTheme: () => void;
   gainXp: (value: number) => void;
+  incrementStreak: () => void;
+  resetStreak: () => void;
 };
 
 export const useUIStore = create<UIState>((set) => ({
@@ -17,4 +19,6 @@ export const useUIStore = create<UIState>((set) => ({
   toggleTheme: () =>
     set((state) => ({ theme: state.theme === "dark" ? "light" : "dark" })),
   gainXp: (value) => set((state) => ({ xp: state.xp + value })),
+  incrementStreak: () => set((state) => ({ streak: state.streak + 1 })),
+  resetStreak: () => set({ streak: 0 }),
 }));
